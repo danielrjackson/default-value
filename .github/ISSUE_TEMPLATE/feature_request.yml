@@ -1,0 +1,80 @@
+name: Feature Request
+description: Request a new feature or enhancement.
+title: "[Feature]: "
+labels: ["feature"]
+projects: ["{{cookiecutter.repo_url}}"]
+assignees:
+  - danielrjackson
+  - danielrjackson-bot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for taking the time to request a new feature!
+  - type: dropdown
+    id: priority
+    attributes:
+      label: Priority
+      options: [Low, Medium, High]
+      default: 1
+    validations:
+      required: true
+  - type: input
+    id: contact
+    attributes:
+      label: Contact Details
+      description: How can we get in touch with you if we need more info?
+      placeholder: ex. email@example.com
+    validations:
+      required: false
+  - type: textarea
+    id: what-you-want
+    attributes:
+      label: What new feature or enhancement do you want?
+      description: Please describe the feature or enhancement you would like to see.
+      placeholder: Tell us what you would like to see!
+      value: "A new feature or enhancement!"
+    validations:
+      required: true
+  - type: textarea
+    id: rationale
+    attributes:
+      label: Rationale
+      description: Why do you want this feature or enhancement? How will it benefit users?
+      placeholder: Explain the reasoning behind your request.
+      value: "This feature will improve user experience by..."
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: >
+        Please provide any additional context or information that might help us understand your
+        request better.
+  - type: textarea
+    id: proposed-solutions
+    attributes:
+      label: Proposed Solutions
+      description: >
+        If you have any ideas on how this feature could be implemented, please share them here.
+      placeholder: Describe your proposed solutions or ideas.
+      value: "One possible solution is to..."
+  - type: textarea
+    id: requirements
+    attributes:
+      label: Requirements
+      description: >
+        What are the requirements or prerequisites for this feature? Are there any specific
+        constraints or considerations we should be aware of?
+      placeholder: List any requirements, prerequisites, or constraints.
+      value: "The feature should be compatible with..."
+  - type: textarea
+    id: related-links
+    attributes:
+      label: Related Links
+      description: >
+        If there are any related issues, discussions, or resources that might help us understand
+        your request better, please provide links here.
+      placeholder: Provide links to related issues, discussions, or resources.
+      value: "Related issue: {{cookiecutter.example_issue_url}}"

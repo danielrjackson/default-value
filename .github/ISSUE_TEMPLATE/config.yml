@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://json.schemastore.org/github-issue-config.json
+blank_issues_enabled: false
+contact_links:
+  - name: "{{cookiecutter.pretty_project}} Community Support"
+    url: "https://{{cookiecutter.disc_url_body}}"
+    about: Please ask and answer questions here.
+  - name: Bug Reports
+    url: "https://{{cookiecutter.iss_url_body}}/new?template=bug_report.yml"
+    about: Please report bugs and issues here.
+  - name: Feature Requests
+    url: "https://{{cookiecutter.iss_url_body}}/new?template=feature_request.yml"
+    about: Please request features here.
+  - name: Vulnerability Reports
+    url: "https://{{cookiecutter.sec_url_body}}"
+    about: Please report security vulnerabilities here.

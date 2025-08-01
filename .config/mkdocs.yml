@@ -1,0 +1,71 @@
+site_name: Default-Value
+site_url:  https://github.com/danielrjackson/default-value/blob/main/docs/README.md
+site_description: A Python library for defining default values in function signatures.
+site_author: Daniel Jackson
+repo_url:  https://github.com/danielrjackson/default-value
+repo_name: danielrjackson/default-value
+
+theme:
+  name: material
+  language: en
+  palette:
+    # light mode
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Switch to dark mode
+    # dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to light mode
+  features:
+    - navigation.instant           # faster page transitions
+    - navigation.sections          # section-level nav
+    - navigation.top               # show “top” button
+    - toc.integrate                # TOC in the sidebar
+    - content.code.copy            # copy-to-clipboard button
+    - content.code.annotate        # call-outs in code blocks
+
+nav:
+  - Home: index.md
+  - Guides:
+      - Getting Started: guides/getting-started.md
+      - Configuration:  guides/configuration.md
+  - API Reference: reference/
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          setup_commands:
+            - import sys, pathlib, os
+            - sys.path.append(os.getcwd())
+          options:
+            show_root_heading: false
+            show_source: false
+  - git-revision-date-localized:
+      timezone: US/Pacific
+      type: timeago
+
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences         # better code-block fences
+  - pymdownx.highlight           # code highlighting extras
+  - pymdownx.inlinehilite
+  - pymdownx.details             # collapsible sections
+  - tables
+  - toc:
+      permalink: "¶"
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/danielrjackson
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/danielrjackson

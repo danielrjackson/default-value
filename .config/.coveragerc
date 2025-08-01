@@ -1,0 +1,11 @@
+[run]
+source     = src/default_value          # package under test
+parallel   = true
+data_file  = .cache/coverage/.coverage  # project-local cache dir
+
+[report]
+show_missing = true
+skip_covered = true
+exclude_lines =
+    pragma: no cover
+    if __name__ == .__main__.:

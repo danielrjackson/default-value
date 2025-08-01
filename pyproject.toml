@@ -1,0 +1,38 @@
+[project]
+name = "default-value"
+version = "1.0.0"
+description = "Provides `Default` that allows differentiating a provided value from a default."
+authors = [
+  { name = "Daniel Jackson", email = "643707+danielrjackson@users.noreply.github.com" },
+]
+requires-python = "~=3.13"
+readme = { file = "README.md", content-type = "text/markdown" }
+license = { file = "LICENSE" }
+dependencies = [
+  "pydantic~=2.9.2",                    # Data validation and parsing
+]
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+include = ["docs/**", "LICENSE"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/default_value"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+
+[tool.uv]
+dev-dependencies = [
+  "coverage~=7.7.1",                                  # Test coverage report
+  "hypothesis~=6.130.13",                             # Fuzzy testing
+  "mkdocs-git-revision-date-localized-plugin~=1.4.7", # Git revision date for documentation
+  "mkdocs-material-extras~=0.0.10",                   # Extras for MkDocs Material
+  "mkdocstrings-python~=0.8.3",                       # Python support for mkdocstrings
+  "mypy~=1.17.1",                                     # Optional static type checker
+  "pytest-cov~=6.2.1",                                # Pytest coverage plugin
+  "ruff~=0.12.7",                                     # Fast Python linter
+]

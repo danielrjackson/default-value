@@ -1,0 +1,20 @@
+exclude = [".git", ".venv", ".pytest_cache", "__pycache__"]
+line-length = 100
+src = ["src", "tests"]
+
+[lint]
+extend-select = [
+  "E",   # pycodestyle (style guide enforcement)
+  "B",   # bugbear (unnecessary complexity)
+  "I",   # isort (import sorting)
+  "UP",  # pyupgrade (code modernizations)
+  "C90", # mccabe (complexity)
+  "D",   # pydocstyle (docstring conventions)
+]
+future-annotations = true
+ignore = [
+  "D203", # incorrect-blank-line-before-class
+  "D212", # multi-line-summary-first-line
+  "D413", # missing-blank-line-after-last-section
+]
+preview = true

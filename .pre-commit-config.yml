@@ -1,0 +1,14 @@
+# .pre-commit-config.yaml  (root)
+repos:
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    rev: v0.4.4
+    hooks:
+      - id: ruff
+        args: [--config=.config/ruff.toml]
+  - repo: https://github.com/psf/black
+    rev: 24.3.0
+    hooks:
+      - id: black
+        additional_dependencies: [black]
+        args: [--config=pyproject.toml]
+  # ...
