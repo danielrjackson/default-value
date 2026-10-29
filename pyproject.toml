@@ -9,11 +9,11 @@ requires-python = "~=3.13"
 readme = { file = "README.md", content-type = "text/markdown" }
 license = { file = "LICENSE" }
 dependencies = [
-  "pydantic~=2.9.2",                    # Data validation and parsing
+  "pydantic>=2.14.1",                    # Data validation and parsing
 ]
 
 [build-system]
-requires = ["hatchling"]
+requires = ["hatchling>=1.33.0"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build]
@@ -27,12 +27,12 @@ pythonpath = ["src"]
 
 [tool.uv]
 dev-dependencies = [
-  "coverage~=7.7.1",                                  # Test coverage report
-  "hypothesis~=6.130.13",                             # Fuzzy testing
+  "coverage>=7.17.0",                                  # Test coverage report
+  "hypothesis>=6.170.13",                             # Fuzzy testing
   "mkdocs-git-revision-date-localized-plugin~=1.4.7", # Git revision date for documentation
   "mkdocs-material-extras~=0.0.10",                   # Extras for MkDocs Material
   "mkdocstrings-python~=0.8.3",                       # Python support for mkdocstrings
-  "mypy~=1.17.1",                                     # Optional static type checker
-  "pytest-cov~=6.2.1",                                # Pytest coverage plugin
-  "ruff~=0.12.7",                                     # Fast Python linter
+  "mypy>=2.4.1",                                     # Optional static type checker
+  "pytest-cov>=7.1.0",                                # Pytest coverage plugin
+  "ruff>=0.17.3",                                     # Fast Python linter
 ]
