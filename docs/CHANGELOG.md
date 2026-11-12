@@ -45,7 +45,7 @@ The format is based on [Keep a Changelog] and this project adheres to [Semantic 
 
 ## 1.0.0
 
-- **Date**: 2025-08-01
+- **Date**: 2025-08-07
 - [**Release 1.0.0**]
 
 Initial release.

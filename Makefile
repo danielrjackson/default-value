@@ -15,8 +15,5 @@ test:
 	coverage run --rcfile $(CONFIG)/.coveragerc -m pytest
 	coverage html --rcfile $(CONFIG)/.coveragerc
 
-docs:
-	mkdocs serve -f $(CONFIG)/mkdocs.yml
-
 clean:
 	rm -rf $(CACHE) .pytest_cache .coverage htmlcov dist

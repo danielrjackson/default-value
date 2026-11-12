@@ -26,7 +26,7 @@ from dataclasses import NoDefault
 from pathlib import Path
 from typing import Final, overload
 
-from annotated_types import Annotated
+from annotated_types import Annotated, get_args, get_origin
 from pydantic import Field
 
 __all__ = [
@@ -56,7 +56,7 @@ class Default[T]:
 
     def __init__(
         self,
-        value: T | Annotated[T, Field],
+        value: T | Annotated[T, *Field],
     ) -> None:
         """
         Initialize the object with a given value.
@@ -76,7 +76,45 @@ class Default[T]:
 
     def __value__(self) -> T:
         """Return the value contained in this Default instance."""
+        if self.is_annotated():
+            # If the value is an Annotated type, extract the actual value
+            return get_args(self.value)[0]
+        # Otherwise, return the raw value as is
         return self.value
+
+    def annotated_value(self) -> Annotated[T, *Field] | None:
+        """
+        Returns
+        -------
+            The annotated value contained in this Default instance.
+
+        Throws
+        ------
+            TypeError: If the value is not annotated.
+        """
+        if self.is_annotated():
+            # If the value is an Annotated type, extract the actual value
+            return self.value
+
+        variable_name = str(getattr(self.value, "__name__", Default.__name__))
+
+        raise TypeError(f"Value is not annotated, use `{variable_name}.is_annotated()`.")
+
+    def annotated_value_or_none(self) -> Annotated[T, *Field] | None:
+        """
+        Returns
+        -------
+            The annotated value contained in this Default instance, or None if not annotated.
+        """
+        if self.is_annotated():
+            # If the value is an Annotated type, extract the actual value
+            return self.value
+
+        return None
+
+    def is_annotated(self) -> bool:
+        """Return True if the value is an annotated type, False otherwise."""
+        return get_origin(self) is Annotated
 
     def is_valid(self) -> bool:
         if self.validators is None:
